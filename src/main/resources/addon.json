@@ -2,7 +2,7 @@
   "uuid": "%uuid%",
   "name": "AntiMute",
   "mainClass": "de.qry.antimute.AntiMute",
-  "description": "Dieses Addon beschützt dich vor deiner eigenen Schusseligkeit!\nAchtung: Kann Autotext nicht überprüfen!!",
+  "description": "Dieses Addon beschÃ¼tzt dich vor dir selbst!\nAchtung: Kann Autotext nicht Ã¼berprÃ¼fen!!",
   "icon": "http://www.darkexe.esy.es/img/minecraft/acm/icon.png",
   "version": 1.0,
   "author": "_qry",
