@@ -25,6 +25,11 @@ public class BlockedWordsManager {
     public void importWords(){
         blocked.clear();
         AntiMute instance = AntiMute.getInstance();
+        try{
+            JsonArray blockedArray = instance.getConfig().getAsJsonArray("blocked");
+        }catch (NullPointerException e){
+            createConfig();
+        }
         JsonArray blockedArray = instance.getConfig().getAsJsonArray("blocked");
         for(JsonElement el : blockedArray){
             String word = el.getAsString().toLowerCase().trim().replaceAll(" ", "_");
@@ -50,6 +55,13 @@ public class BlockedWordsManager {
             blocked.remove(sequence.toLowerCase().trim().replaceAll(" ", "_"));
             saveToConfig();
         }
+    }
+
+    public void createConfig(){
+        AntiMute instance = AntiMute.getInstance();
+        JsonArray array = new JsonArray();
+        instance.getConfig().add("blocked", array);
+        instance.saveConfig();
     }
 
     public void saveToConfig(){
@@ -83,3 +95,4 @@ public class BlockedWordsManager {
         this.blocked_amount = blocked_amount;
     }
 }
+
